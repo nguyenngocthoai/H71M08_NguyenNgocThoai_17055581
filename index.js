@@ -9,8 +9,8 @@ app.set("view engine","ejs")
 app.set("views","./views")
 //config
 const region = "us-east-2";
-const accessKeyId = "AKIAJWWUZXCFAK6WGVOA";
-const secretAccessKey = "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";
+const accessKeyId = "";
+const secretAccessKey = "";
 app.listen(5000,(err)=>{
     if(err)
         console.log("Loi: ",err);
