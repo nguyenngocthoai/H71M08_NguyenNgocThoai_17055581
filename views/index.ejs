@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sản Phẩm</title>
+</head>
+<body>
+    <p>Thêm Sản Phẩm</p>
+    <form action="/api/addLinhKien" method="POST">
+        <input type="text" name="maSanPham" placeholder="Nhập mã sản phẩm">
+        <br/><br/>
+        <input type="text" name="ten" placeholder="Nhập tên sản phẩm">
+        <br/><br/>
+        <input type="text" name="soLuong" placeholder="Nhập số lượng">
+        <br/><br/>
+        
+        <input type="submit" value="Thêm Sản Phẩm">
+    </form>
+    
+<br><br>
+    <form action="/deleteNhieuLinhKien" method="POST">
+        <input type="submit" name="maSanPham" value="Xóa">
+    </form>
+
+    <p>Danh Sách Sản Phẩm</p>
+    <table border="1">
+        <tr>
+            <th>Mã Sản Phẩm</th>
+            <th>Tên Sản Phẩm</th>
+            <th>Số lượng</th>
+            <th>Xóa</th>
+            <th>Chọn</th>
+        </tr>
+        <% for(let i=0 ; i< linhKien.length; i++){%>
+        <tr>
+            <td><%= linhKien[i].maSanPham %></td>
+            <td><%= linhKien[i].ten %></td>
+            <td><%= linhKien[i].soLuong %></td>
+            
+            
+            <td>
+                <form action="/deleteLinhKien" method="POST">
+                    <input type="hidden" name="maSanPham" value="<%= linhKien[i].maSanPham %>">
+                    <input type="submit" value="Xóa">
+                </form>
+            </td>
+            
+            <td>
+                <!-- <form action="/deleteNhieuLinhKien" method="POST"> -->
+                    <input type="checkbox" name="maSanPham">
+                <!-- </form> -->
+            </td>
+        </tr>
+        <%}%>
+    </table>
+</body>
+</html>
